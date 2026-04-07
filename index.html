@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rhino Consulting — Aviation Specialists</title>
+  <meta name="description" content="Rhino Consulting: South African aviation specialists covering flight training, regulatory compliance, document creation, and Part 91, 61 & 135 operations." />
+  <style>
+    :root {
+      --green: #2d5a27;
+      --green-light: #3d7a35;
+      --green-pale: #f0f5ef;
+      --charcoal: #2c2c2c;
+      --grey: #6b6b6b;
+      --white: #ffffff;
+      --border: #d4e3d2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--charcoal);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: var(--white);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .hero img {
+      height: 100px;
+      width: auto;
+      margin-bottom: 1.5rem;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .tagline {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      opacity: 0.75;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 4rem 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    section p {
+      color: var(--grey);
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: var(--green-pale);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .service-card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--grey);
+      margin: 0;
+    }
+
+    /* APP SECTION */
+    .app-section {
+      background: var(--green-pale);
+      border-top: 2px solid var(--border);
+      border-bottom: 2px solid var(--border);
+      padding: 4rem 2rem;
+    }
+
+    .app-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .app-text { flex: 1; min-width: 260px; }
+
+    .app-text h2 {
+      font-size: 1.8rem;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+
+    .app-text p {
+      color: var(--grey);
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    .app-badge {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      padding: 0.6rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .app-badge:hover { background: var(--green-light); }
+
+    .app-features {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .app-features li {
+      color: var(--grey);
+      font-size: 0.95rem;
+      padding: 0.25rem 0;
+    }
+
+    .app-features li::before {
+      content: "✓ ";
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: var(--green);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .contact-box a {
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-box a:hover { text-decoration: underline; }
+
+    .contact-box p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <img src="logo.jpeg" alt="Rhino Consulting" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#aerolex">AeroLex App</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="logo.jpeg" alt="Rhino Consulting Logo" />
+    <h1>Rhino Consulting</h1>
+    <p class="tagline">South African Aviation Specialists</p>
+    <p class="sub">From flight training to regulatory compliance — expert aviation consulting for Part 61, Part 91, and Part 135 operations.</p>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Rhino Consulting is a South African aviation consultancy specialising in the full spectrum of aviation operations. With deep expertise in South African Civil Aviation Regulations (SA CARs 2011), we support operators, training organisations, and individuals across all phases of aviation.</p>
+    <p>Our team brings hands-on experience in flight training, charter operations, airworthiness, and regulatory compliance — helping you navigate the complex world of SA aviation with confidence.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>We cover the full aviation lifecycle — from training and licensing to compliance and operations.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">✈️</div>
+        <h3>Flight Training</h3>
+        <p>Structured flight training programmes from PPL through CPL, including instrument and multi-engine endorsements.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">📋</div>
+        <h3>Regulatory Compliance</h3>
+        <p>SA CARs 2011 compliance consulting across Parts 61, 91, 135, and 141 — audits, documentation, and gap analysis.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">📄</div>
+        <h3>Document Creation</h3>
+        <p>Operations manuals, maintenance agreements, quality systems, and all regulatory documentation for your organisation.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">🏢</div>
+        <h3>Part 135 Specialist</h3>
+        <p>Air Operator Certificate (AOC) support, Part 135 operations manual development, and charter compliance advisory.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">🎓</div>
+        <h3>Part 141 Training Orgs</h3>
+        <p>Approved Training Organisation (ATO) setup, curriculum development, and SACAA liaison for Part 141 approval.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">🔧</div>
+        <h3>Part 91 Operations</h3>
+        <p>Private operator compliance, airworthiness management, and operational support for Part 91 operators.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AEROLEX APP -->
+  <div class="app-section" id="aerolex">
+    <div class="app-inner">
+      <div class="app-text">
+        <h2>AeroLex — SA Aviation Regs, Offline</h2>
+        <p>AeroLex is our free Android app that puts the complete South African Civil Aviation Regulations and Technical Standards in your pocket — fully searchable, available offline, no internet required.</p>
+        <ul class="app-features">
+          <li>Full SA CARs 2011 — all parts</li>
+          <li>CATS (Civil Aviation Technical Standards)</li>
+          <li>Works completely offline</li>
+          <li>Fast full-text search</li>
+          <li>Bookmark and star regulations</li>
+          <li>AI-assisted regulation queries</li>
+        </ul>
+        <br/>
+        <a class="app-badge" href="https://play.google.com/store/apps/details?id=za.co.aerolex.app" target="_blank">
+          ▶ Get it on Google Play
+        </a>
+        &nbsp;
+        <a href="aerolex/privacy-policy.html" style="font-size:0.85rem; color: var(--green); margin-left: 0.5rem;">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have a question about our services or need aviation consulting support? Get in touch — we'd love to help.</p>
+    <div class="contact-box">
+      <a href="mailto:info@rhinoconsulting.co.za">info@rhinoconsulting.co.za</a>
+      <p>South Africa — serving operators nationwide</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Rhino Consulting. All rights reserved. &nbsp;|&nbsp;
+      <a href="aerolex/privacy-policy.html">AeroLex Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>
